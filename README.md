@@ -1,2 +1,2 @@
 # flashsquad
-React Native UQ ride-hailing Mobile App
+React Native UQ ride-hailing Mobile App -- client side
