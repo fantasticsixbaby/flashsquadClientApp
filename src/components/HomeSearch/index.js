@@ -1,34 +1,47 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Platform, Button, TextInput, } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Platform,
+  Button,
+  TextInput,
+} from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
-import {
-  Searchbar,
-  Button as StyledButton,
-} from "react-native-paper";
+import { Searchbar, Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 const HomeSearch = () => {
+  const newdate = new Date();
+  const hours = newdate.getHours();
+  const minutes = newdate.getMinutes();
+  const makeTwoDigits = (time) => {
+    const timeString = `${time}`;
+    if (timeString.length === 2) return time;
+    return `0${time}`;
+  };
+
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState("date");
+  const [time, setTime] = useState(`${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`);
+  const [mode, setMode] = useState("time");
   const [show, setShow] = useState(false);
-  const [text, setText] = React.useState("");
+  const [startingPoint, setStartingPoint] = React.useState("");
+  const [destination, setDestination] = React.useState("");
 
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === "ios");
-    setDate(currentDate);
+  const onChange = (event, selectedTime) => {
+    const hours = selectedTime.getHours();
+    const minutes = selectedTime.getMinutes();
+    const currentTime = `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}` || time;
+    setShow(Platform.OS === 'ios');
+    setTime(currentTime);
   };
+
   const showMode = (currentMode) => {
     setShow(true);
     setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode("date");
   };
 
   const showTimepicker = () => {
@@ -39,16 +52,20 @@ const HomeSearch = () => {
     <View style={styles.wholeSearch}>
       {/*input box*/}
       <View style={styles.row}>
-      <View style={styles.iconContainer}>
-        <AntDesign name={"clockcircle"} size={20} color={"#218cff"} />
+        <View style={styles.iconContainer}>
+          <AntDesign
+            onPress={showTimepicker}
+            name={"clockcircle"}
+            size={20}
+            color={"#218cff"}
+          />
+        </View>
+        <TextInput
+          style={{ height: 40, marginLeft: 20 }}
+          placeholder="Right Now"
+          defaultValue={time.toString()}
+        />
       </View>
-      <TextInput
-        style={{height: 40, marginLeft: 20}}
-        placeholder="Right Now"
-        onChangeText={text => setText(text)}
-        defaultValue={text}
-      />
-    </View>
 
       {/* Previous destination */}
       <View style={styles.row}>
@@ -56,10 +73,11 @@ const HomeSearch = () => {
           <MaterialIcons name={"location-pin"} size={25} color={"#218cff"} />
         </View>
         <TextInput
-        style={{height: 40, marginLeft: 20}}
-        placeholder="West End"
-        defaultValue={text}
-      />
+          style={{ height: 40, marginLeft: 20 }}
+          placeholder="West End"
+          onChangeText={(text) => setStartingPoint(text)}
+          defaultValue={startingPoint}
+        />
       </View>
 
       {/* Home destination */}
@@ -68,16 +86,16 @@ const HomeSearch = () => {
           <Entypo name={"home"} size={25} color={"#218cff"} />
         </View>
         <TextInput
-        style={{height: 40, marginLeft: 20}}
-        placeholder="Where to go?"
-        defaultValue={text}
-      />
+          style={{ height: 40, marginLeft: 20 }}
+          placeholder="Where to go?"
+          defaultValue={destination}
+        />
       </View>
 
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
-          value={date}
+          value={new Date()}
           mode={mode}
           is24Hour={true}
           display="default"
@@ -85,7 +103,11 @@ const HomeSearch = () => {
         />
       )}
       <View style={styles.button}>
-        <StyledButton color="#218cff" mode="contained" onPress={() => console.log("Pressed")}>
+        <StyledButton
+          color="#218cff"
+          mode="contained"
+          onPress={() => console.log("Pressed")}
+        >
           COMFIRMED
         </StyledButton>
       </View>
@@ -134,6 +156,6 @@ const styles = StyleSheet.create({
     height: 250,
     margin: 20,
     borderRadius: 15,
-    backgroundColor: '#ffffff'
-  }
+    backgroundColor: "#ffffff",
+  },
 });
