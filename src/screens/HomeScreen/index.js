@@ -6,34 +6,16 @@ import Notifications from "../../components/Notifications";
 
 const HomeScreen = () => {
   return (
-    <View
-      style={{
-        height: 1000,
-        backgroundColor: "#a0abff",
-        
-      }}
-    >
-    <View style={styles.map}>
-    <Text> i AM MAP</Text>
-    </View>
+    <>
     
-      <View
-        style={{
-          marginTop: 370,
-        }}
-      >
-        <HomeSearch />
-      </View>
-    </View>
+    <HomeMap />
+      
+    </>
   );
 };
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-    map: {
-        justifyContent: "center",
-        alignItems: "center",
-        
-    }
+    
 });
