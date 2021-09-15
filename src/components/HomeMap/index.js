@@ -19,6 +19,7 @@ export default HomeMap;
 
 const styles = StyleSheet.create({
   map: {
+    marginTop: 25,
     height: 1000,
     backgroundColor: "#a0abff",
   },
@@ -27,6 +28,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   HomeSearch: {
-    marginTop: 370,
+    marginTop: 320,
   },
 });
