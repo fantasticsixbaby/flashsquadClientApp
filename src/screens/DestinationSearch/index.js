@@ -9,10 +9,10 @@ const DestinationSearch = () => {
   const [destinationPlace, setDestinationPlace] = useState(null);
 
   useEffect(() => {
-      if (fromText && destinationPlace) {
-          console.warn('redirect to result page');
-      }
-  }, [fromText, destinationPlace])
+    if (fromText && destinationPlace) {
+      console.warn("redirect to result page");
+    }
+  }, [fromText, destinationPlace]);
 
   return (
     <SafeAreaView>
@@ -25,9 +25,9 @@ const DestinationSearch = () => {
         ></TextInput>
         <GooglePlacesAutocomplete
           placeholder="Where to?"
-          styles={{textInput: styles.textInput}}
+          styles={{ textInput: styles.textInput }}
           onPress={(data, details = null) => {
-            setDestinationPlace({data, details});
+            setDestinationPlace({ data, details });
             //console.log(data, details);
           }}
           fetchDetails
@@ -36,6 +36,7 @@ const DestinationSearch = () => {
             language: "en",
           }}
         />
+        
       </View>
     </SafeAreaView>
   );
