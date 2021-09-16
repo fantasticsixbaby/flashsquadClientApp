@@ -9,6 +9,7 @@ const HomeScreen = () => {
   return (
     <>
     <HomeMap />
+    <Text>i am text</Text>
     </>
   );
 };
