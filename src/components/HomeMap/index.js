@@ -18,8 +18,6 @@ const HomeMap = () => {
           longitudeDelta: 0.0421,
         }}
       />
-      
-      
     </View>
   );
 };
@@ -30,6 +28,7 @@ const styles = StyleSheet.create({
   map: {
     marginTop: 25,
     height: 1000,
+    zIndex: 0,
   },
   text: {
     justifyContent: "center",
@@ -37,9 +36,9 @@ const styles = StyleSheet.create({
   },
   HomeSearch: {
     //marginTop: 320,
-    position: 'absolute',
+    position: "absolute",
     zIndex: 999,
     top: 320,
-    width: '100%',
+    width: "100%",
   },
 });
