@@ -8,8 +8,7 @@ import SearchResults from "../SearchResults";
 const HomeScreen = () => {
   return (
     <>
-    <HomeMap />
-    <Text>i am text</Text>
+    <SearchResults />
     </>
   );
 };

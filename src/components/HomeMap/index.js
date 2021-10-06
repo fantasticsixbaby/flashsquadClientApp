@@ -12,8 +12,8 @@ const HomeMap = () => {
       <MapView
         style={{ width: "100%", height: "100%" }}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: -27.4705,
+          longitude: 153.0260,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   HomeSearch: {
     //marginTop: 320,
+    // height: Dimemsions.get('window').height - 320
     position: "absolute",
     zIndex: 999,
     top: 320,
