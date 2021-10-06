@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import HomeSearch from "../HomeSearch";
 import MapView from "react-native-maps";
+import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 const HomeMap = () => {
   return (
@@ -11,13 +12,21 @@ const HomeMap = () => {
       </View>
       <MapView
         style={{ width: "100%", height: "100%" }}
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: -27.4705,
-          longitude: 153.0260,
+          longitude: 153.026,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      />
+      >
+        <Marker
+          coordinate={{
+            latitude: -27.4705,
+            longitude: 153.026,
+          }}
+        ></Marker>
+      </MapView>
     </View>
   );
 };
