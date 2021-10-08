@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {
   StyleSheet,
   Text,
@@ -6,17 +6,19 @@ import {
   Platform,
   Button,
   TextInput,
+  PermissionsAndroid,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import { Searchbar, Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import Geolocation from 'react-native-geolocation-service';
 
 const HomeSearch = () => {
-  const newdate = new Date();
-  const hours = newdate.getHours();
-  const minutes = newdate.getMinutes();
+  const newDate = new Date();
+  const hours = newDate.getHours();
+  const minutes = newDate.getMinutes();
   const makeTwoDigits = (time) => {
     const timeString = `${time}`;
     if (timeString.length === 2) return time;
@@ -25,7 +27,9 @@ const HomeSearch = () => {
 
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
-  const [time, setTime] = useState(`${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`);
+  const [time, setTime] = useState(
+    `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`
+  );
   const [mode, setMode] = useState("time");
   const [show, setShow] = useState(false);
   const [startingPoint, setStartingPoint] = React.useState("");
@@ -34,8 +38,9 @@ const HomeSearch = () => {
   const onChange = (event, selectedTime) => {
     const hours = selectedTime.getHours();
     const minutes = selectedTime.getMinutes();
-    const currentTime = `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}` || time;
-    setShow(Platform.OS === 'ios');
+    const currentTime =
+      `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}` || time;
+    setShow(Platform.OS === "ios");
     setTime(currentTime);
   };
 
@@ -47,6 +52,39 @@ const HomeSearch = () => {
   const showTimepicker = () => {
     showMode("time");
   };
+
+  const androidPermission = async() => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: "Location",
+          message:
+            "Car Hailing App needs access to your location " +
+            "so you can use GPS.",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK"
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the location");
+      } else {
+        console.log("Location permission denied");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      androidPermission();
+    }
+    else {
+      Geolocation.requestAuthorization();
+    }
+  }, [])
 
   return (
     <View style={styles.wholeSearch}>
