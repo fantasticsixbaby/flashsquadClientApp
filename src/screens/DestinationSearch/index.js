@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 25,
     height: 1000,
-    // backgroundColor: "#a0abff",
   },
   textInput: {
     position: "absolute",
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
   from: {
     width: 15,
     height: 15,
-    backgroundColor: "#341f97",
+    backgroundColor: "#218cff",
     position: 'absolute',
     top: 35,
     left: 11,
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
   line: {
     width: 3,
     height: 60,
-    backgroundColor: '#341f97',
+    backgroundColor: '#218cff',
     position: 'absolute',
     top: 45,
     left: 17,
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
   to: {
     width: 20,
     height: 20,
-    backgroundColor: "#341f97",
+    backgroundColor: "#218cff",
     position: 'absolute',
     top: 90,
     left: 10,

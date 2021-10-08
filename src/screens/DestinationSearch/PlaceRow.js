@@ -6,7 +6,7 @@ const PlaceRow = ({ data }) => {
   return (
     <View style={styles.row}>
       <View style={styles.iconContainer}>
-        <Entypo name="location-pin" size={22} color={"#341f97"}></Entypo>
+        <Entypo name="location-pin" size={22} color={"#218cff"}></Entypo>
       </View>
       <Text style={styles.locationText}>{data.description}</Text>
     </View>
