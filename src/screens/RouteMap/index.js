@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
-import { PROVIDER_GOOGLE } from "react-native-maps";
+import {  Marker,PROVIDER_GOOGLE } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyB1F0Q3wRGrbJpn7_u9kDH6WmM8VZ_z8MA";
@@ -29,6 +29,12 @@ const RouteMap = () => {
           strokeWidth={6}
           strokeColor="#341f97"
         />
+        <Marker
+        coordinate={origin}
+        ></Marker>
+      <Marker
+        coordinate={destination}
+      ></Marker>
       </MapView>
     </View>
   );

@@ -9,7 +9,7 @@ import RouteMap from "../RouteMap";
 const HomeScreen = () => {
   return (
     <>
-    <RouteMap />
+    <DestinationSearch />
     </>
   );
 };
