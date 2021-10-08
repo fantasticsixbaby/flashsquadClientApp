@@ -13,7 +13,8 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import { Searchbar, Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import Geolocation from 'react-native-geolocation-service';
+import * as Location from 'expo-location';
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const HomeSearch = () => {
   const newDate = new Date();
@@ -32,8 +33,8 @@ const HomeSearch = () => {
   );
   const [mode, setMode] = useState("time");
   const [show, setShow] = useState(false);
-  const [startingPoint, setStartingPoint] = React.useState("");
-  const [destination, setDestination] = React.useState("");
+  const [startingPoint, setStartingPoint] = React.useState(null);
+  const [destination, setDestination] = React.useState(null);
 
   const onChange = (event, selectedTime) => {
     const hours = selectedTime.getHours();
@@ -53,38 +54,18 @@ const HomeSearch = () => {
     showMode("time");
   };
 
-  const androidPermission = async() => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: "Location",
-          message:
-            "Car Hailing App needs access to your location " +
-            "so you can use GPS.",
-          buttonNeutral: "Ask Me Later",
-          buttonNegative: "Cancel",
-          buttonPositive: "OK"
-        }
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log("You can use the location");
-      } else {
-        console.log("Location permission denied");
-      }
-    } catch (err) {
-      console.warn(err);
-    }
-  }
-
   useEffect(() => {
-    if (Platform.OS === 'android') {
-      androidPermission();
-    }
-    else {
-      Geolocation.requestAuthorization();
-    }
-  }, [])
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        console.warn('Permission to access location was denied');
+        return;
+      }else {
+        Location.installWebGeolocationPolyfill();
+      }
+    })();
+  }, []);
+  
 
   return (
     <View style={styles.wholeSearch}>
@@ -105,20 +86,28 @@ const HomeSearch = () => {
         />
       </View>
 
-      {/* Previous destination */}
+      {/* Starting Point*/}
       <View style={styles.row}>
         <View style={styles.iconContainer}>
           <MaterialIcons name={"location-pin"} size={25} color={"#218cff"} />
         </View>
-        <TextInput
-          style={{ height: 40, marginLeft: 20 }}
-          placeholder="West End"
-          onChangeText={(text) => setStartingPoint(text)}
-          defaultValue={startingPoint}
+        <GooglePlacesAutocomplete
+          placeholder="Where to?"
+          style={{ height: 40, marginLeft: 10 }}
+          fetchDetails
+          query={{
+            key: "AIzaSyB1F0Q3wRGrbJpn7_u9kDH6WmM8VZ_z8MA",
+            language: "en",
+          }}
+          enablePoweredByContainer={false}
+          currentLocation={true}
+          onPress={(data, details = null) => {
+            setStartingPoint({ data, details });
+          }}
         />
       </View>
 
-      {/* Home destination */}
+      {/* Destination */}
       <View style={styles.row}>
         <View style={[styles.iconContainer]}>
           <Entypo name={"home"} size={25} color={"#218cff"} />
