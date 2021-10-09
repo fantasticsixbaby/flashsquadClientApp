@@ -15,6 +15,7 @@ const RouteMap = () => {
       <MapView
         style={{ width: "100%", height: "100%" }}
         provider={PROVIDER_GOOGLE}
+        showUserLocation={true}
         initialRegion={{
           latitude: -27.4705,
           longitude: 153.026,
@@ -27,7 +28,7 @@ const RouteMap = () => {
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
           strokeWidth={6}
-          strokeColor="#341f97"
+          strokeColor="#218cff"
         />
         <Marker
         coordinate={origin}

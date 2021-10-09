@@ -10,6 +10,7 @@ const SearchResults = () => {
       <MapView
         style={{ width: "100%", height: "100%" }}
         provider={PROVIDER_GOOGLE}
+        showUserLocation={true}
         initialRegion={{
           latitude: -27.4705,
           longitude: 153.026,

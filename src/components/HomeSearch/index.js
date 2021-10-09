@@ -101,6 +101,7 @@ const HomeSearch = () => {
           }}
           enablePoweredByContainer={false}
           currentLocation={true}
+          currentLocationLabel="Current location"
           onPress={(data, details = null) => {
             setStartingPoint({ data, details });
           }}
