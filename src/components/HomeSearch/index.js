@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
-  Text,
   View,
   Platform,
-  Button,
   TextInput,
-  PermissionsAndroid,
   Pressable,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
-import { Searchbar, Button as StyledButton } from "react-native-paper";
+import { Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Location from "expo-location";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -29,8 +26,7 @@ const HomeSearch = (props) => {
     return `0${time}`;
   };
 
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const onChangeSearch = (query) => setSearchQuery(query);
+  
   const [time, setTime] = useState(
     `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`
   );
@@ -44,7 +40,7 @@ const HomeSearch = (props) => {
     const minutes = selectedTime.getMinutes();
     const currentTime =
       `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}` || time;
-    setShow(Platform.OS === "ios");
+    setShow(Platform.OS === "android");
     setTime(currentTime);
   };
 
@@ -86,9 +82,8 @@ const HomeSearch = (props) => {
           />
         </View>
         <TextInput
-          editable={false}
           style={{ height: 40, marginLeft: 20, color: "#000000" }}
-          value={time.toString()}
+          placeholder="Right Now"
           defaultValue={time.toString()}
         />
       </Pressable>

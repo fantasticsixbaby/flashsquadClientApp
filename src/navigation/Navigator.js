@@ -17,7 +17,7 @@ const Navigator = () => {
       screenOptions={{
           headerShown: false,
       }}
-      initialRouteName={"SearchResult"}
+      initialRouteName={"Home"}
       >
         <Stack.Screen name={"Home"} component={HomeScreen} />
         <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
