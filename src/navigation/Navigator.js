@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DestinationSearch from "../screens/DestinationSearch";
 import SearchResults from "../screens/SearchResults";
 import HomeMap from "../components/HomeMap";
+import BottomSheet from "../components/BottomSheet/BottomSheet";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ const Navigator = () => {
       screenOptions={{
           headerShown: false,
       }}
-      initialRouteName={"Home"}
+      initialRouteName={"SearchResult"}
       >
         <Stack.Screen name={"Home"} component={HomeScreen} />
         <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />

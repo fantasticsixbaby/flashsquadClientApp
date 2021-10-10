@@ -3,8 +3,12 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import cars from "../../data/cars";
+import { useRoute } from '@react-navigation/native';
+import BottomSheetForClient from "../../components/BottomSheet/BottomSheet";
 
 const SearchResults = () => {
+  const route = useRoute();
+  console.log(route.params);
   return (
     <View style={styles.map}>
       <MapView
@@ -39,8 +43,11 @@ const SearchResults = () => {
             />
           </Marker>
         ))}
+        
       </MapView>
+      <BottomSheetForClient />
     </View>
+    
   );
 };
 
@@ -49,7 +56,6 @@ export default SearchResults;
 const styles = StyleSheet.create({
   map: {
     marginTop: 25,
-    height: 1000,
-    //backgroundColor: "#a0abff",
+    height: 660,
   },
 });

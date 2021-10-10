@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,16 +7,19 @@ import {
   Button,
   TextInput,
   PermissionsAndroid,
+  Pressable,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import { Searchbar, Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import * as Location from 'expo-location';
+import * as Location from "expo-location";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { useNavigation } from "@react-navigation/native";
 
-const HomeSearch = () => {
+const HomeSearch = (props) => {
+  const navigation = useNavigation();
   const newDate = new Date();
   const hours = newDate.getHours();
   const minutes = newDate.getMinutes();
@@ -54,23 +57,26 @@ const HomeSearch = () => {
     showMode("time");
   };
 
+  const goToSearch = () => {
+    navigation.navigate("DestinationSearch");
+  };
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        console.warn('Permission to access location was denied');
+      if (status !== "granted") {
+        console.warn("Permission to access location was denied");
         return;
-      }else {
+      } else {
         Location.installWebGeolocationPolyfill();
       }
     })();
   }, []);
-  
 
   return (
     <View style={styles.wholeSearch}>
       {/*input box*/}
-      <View style={styles.row}>
+      <Pressable onPress={showTimepicker} style={styles.row}>
         <View style={styles.iconContainer}>
           <AntDesign
             onPress={showTimepicker}
@@ -80,11 +86,12 @@ const HomeSearch = () => {
           />
         </View>
         <TextInput
-          style={{ height: 40, marginLeft: 20 }}
-          placeholder="Right Now"
+          editable={false}
+          style={{ height: 40, marginLeft: 20, color: "#000000" }}
+          value={time.toString()}
           defaultValue={time.toString()}
         />
-      </View>
+      </Pressable>
 
       {/* Starting Point*/}
       <View style={styles.row}>
@@ -109,16 +116,17 @@ const HomeSearch = () => {
       </View>
 
       {/* Destination */}
-      <View style={styles.row}>
+      <Pressable onPress={goToSearch} style={styles.row}>
         <View style={[styles.iconContainer]}>
           <Entypo name={"home"} size={25} color={"#218cff"} />
         </View>
         <TextInput
+          editable={false}
           style={{ height: 40, marginLeft: 20 }}
           placeholder="Where to go?"
           defaultValue={destination}
         />
-      </View>
+      </Pressable>
 
       {show && (
         <DateTimePicker
