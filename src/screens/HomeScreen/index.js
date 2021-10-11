@@ -7,8 +7,7 @@ const HomeScreen = () => {
     return (
         <View>
             <HomeMap />
-            <Notifications />
-            
+            <Notifications />  
         </View>
     )
 }
