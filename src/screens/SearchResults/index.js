@@ -4,7 +4,7 @@ import MapView from "react-native-maps";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import cars from "../../data/cars";
 import { useRoute } from '@react-navigation/native';
-import BottomSheetForClient from "../../components/BottomSheet/BottomSheet";
+import BottomSheetForClient from "../../components/BottomSheet";
 
 const SearchResults = () => {
   const route = useRoute();
@@ -55,7 +55,6 @@ export default SearchResults;
 
 const styles = StyleSheet.create({
   map: {
-    marginTop: 25,
-    height: 660,
+    height: 600,
   },
 });
