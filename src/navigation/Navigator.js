@@ -1,28 +1,23 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeScreen from "../screens/HomeScreen";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DestinationSearch from "../screens/DestinationSearch";
-import SearchResults from "../screens/SearchResults";
-import HomeMap from "../components/HomeMap";
-import BottomSheet from "../components/BottomSheet/BottomSheet";
+import HomeNavigator from "./HomeNavigator";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const dummyScreen = (props) => {
+  <View style={{ justifyContent: "center", alignItems: "center" }}>
+    <Text>{props.name}</Text>
+  </View>;
+};
 
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-      screenOptions={{
-          headerShown: false,
-      }}
-      initialRouteName={"Home"}
-      >
-        <Stack.Screen name={"Home"} component={HomeScreen} />
-        <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
-        <Stack.Screen name={"SearchResult"} component={SearchResults} />
-      </Stack.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={HomeNavigator} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };

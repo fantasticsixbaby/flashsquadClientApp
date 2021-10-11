@@ -72,7 +72,7 @@ const HomeSearch = (props) => {
   return (
     <View style={styles.wholeSearch}>
       {/*input box*/}
-      <Pressable onPress={showTimepicker} style={styles.row}>
+      <View onPress={showTimepicker} style={styles.row}>
         <View style={styles.iconContainer}>
           <AntDesign
             onPress={showTimepicker}
@@ -86,7 +86,7 @@ const HomeSearch = (props) => {
           placeholder="Right Now"
           defaultValue={time.toString()}
         />
-      </Pressable>
+      </View>
 
       {/* Starting Point*/}
       <View style={styles.row}>

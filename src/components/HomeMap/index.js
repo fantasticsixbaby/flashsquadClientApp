@@ -35,7 +35,7 @@ export default HomeMap;
 
 const styles = StyleSheet.create({
   map: {
-    marginTop: 25,
+    //marginTop: 25,
     height: 1000,
     zIndex: 0,
   },
