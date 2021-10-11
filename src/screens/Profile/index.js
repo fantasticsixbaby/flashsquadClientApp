@@ -3,8 +3,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { IconButton, Colors } from "react-native-paper";
-import { Avatar } from 'react-native-paper';
-
+import { Avatar } from "react-native-paper";
 
 const Profile = () => {
   const backButton = () => {
@@ -17,45 +16,44 @@ const Profile = () => {
     URL;
   };
   return (
-    <View style={{ marginLeft: 45, marginTop: 50 }}>
-      <View style={styles.row_show}>
-        <MaterialIcons
-          size={20}
-          color={"#fff"}
-          name={"arrow-back-ios"}
-          onPress={backButton}
-          style={styles.back}
-        />
+    <View style={{backgroundColor: "#fff", height: 600}}>
+      <View style={{ marginLeft: 45, marginTop: 50 }}>
+        <View style={styles.row_show}>
+          
+          {/* 头像，链接数据库 */}
+          <Avatar.Image
+            size={150}
+            style={styles.head}
+            source={require("../../images/head.jpeg")}
+          />
 
-        {/* 头像，链接数据库 */}
-        <Avatar.Image size={150} style={styles.head} source={require("../../images/head.jpeg")} />
+          <IconButton
+            size={40}
+            color={"#fff"}
+            icon="camera"
+            style={styles.change}
+            onPress={changeButton}
+          />
 
-        <IconButton
-          size={40}
-          color={"#fff"}
-          icon="camera"
-          style={styles.change}
-          onPress={changeButton}
-        />
+          <Button onPress={saveButton} style={styles.save} mode="contained">
+            Save
+          </Button>
+        </View>
 
-        <Button onPress={saveButton} style={styles.save} mode="contained">
-          Save
-        </Button>
-      </View>
+        <View style={styles.icon}>
+          <Text style={styles.word}>Name</Text>
+          <Text style={styles.input}>User Name</Text>
+        </View>
 
-      <View style={styles.icon}>
-        <Text style={styles.word}>Name</Text>
-        <Text style={styles.input}>User Name</Text>
-      </View>
+        <View style={styles.icon}>
+          <Text style={styles.word}>Major</Text>
+          <Text style={styles.input}>Major</Text>
+        </View>
 
-      <View style={styles.icon}>
-        <Text style={styles.word}>Major</Text>
-        <Text style={styles.input}>Major</Text>
-      </View>
-
-      <View style={styles.icon}>
-        <Text style={styles.word}>Degree</Text>
-        <Text style={styles.input}>Degree, such as Bachelor</Text>
+        <View style={styles.icon}>
+          <Text style={styles.word}>Degree</Text>
+          <Text style={styles.input}>Degree, such as Bachelor</Text>
+        </View>
       </View>
     </View>
   );
@@ -89,7 +87,7 @@ const styles = StyleSheet.create({
     marginLeft: -50,
     borderRadius: 100,
     backgroundColor: "#218cff",
-    borderRadius: 100
+    borderRadius: 100,
   },
   word: { width: 100, fontSize: 20, marginBottom: 10 },
   input: {
