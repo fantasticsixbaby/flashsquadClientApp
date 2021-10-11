@@ -62,16 +62,6 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
-  back: {
-    width: 40,
-    height: 40,
-    marginTop: -70,
-    marginLeft: -20,
-    backgroundColor: "#218cff",
-    padding: 10,
-    borderRadius: 100,
-    paddingLeft: 15,
-  },
   head: {
     width: 150,
     height: 150,
