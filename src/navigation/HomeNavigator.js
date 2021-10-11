@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DestinationSearch from "../screens/DestinationSearch";
 import SearchResults from "../screens/SearchResults";
 import Profile from "../screens/Profile";
-import Rating from "../screens/Rating";
+import RatingForDriver from "../screens/Rating";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +18,7 @@ const HomeNavigator = () => {
       }}
       initialRouteName={"Home"}
     >
-      <Stack.Screen name={"Home"} component={Rating} />
+      <Stack.Screen name={"Home"} component={RatingForDriver} />
       <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
       <Stack.Screen name={"SearchResult"} component={SearchResults} />
     </Stack.Navigator>
