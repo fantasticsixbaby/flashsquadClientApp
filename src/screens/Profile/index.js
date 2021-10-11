@@ -16,7 +16,7 @@ const Profile = () => {
     URL;
   };
   return (
-    <View style={{backgroundColor: "#EFF0F2", height: 600}}>
+    <View style={{backgroundColor: "#fff", height: 600}}>
       <View style={{ marginLeft: 45, marginTop: 50 }}>
         <View style={styles.row_show}>
           
