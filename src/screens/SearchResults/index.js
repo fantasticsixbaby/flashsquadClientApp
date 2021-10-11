@@ -55,7 +55,6 @@ export default SearchResults;
 
 const styles = StyleSheet.create({
   map: {
-    marginTop: 25,
-    height: 660,
+    height: 600,
   },
 });
