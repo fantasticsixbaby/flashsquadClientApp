@@ -9,8 +9,8 @@ const RatingForDriver = () => {
     console.log("Rating is: " + rating);
   };
   return (
-    <View style={{ backgroundColor: "#fff" }}>
-      <Text style={{ padding: 15, marginLeft: 10, fontSize: 20 }}>
+    <View style={{ backgroundColor: "#fff", height: 800 }}>
+      <Text style={{ padding: 15, marginLeft: 10, fontSize: 20,marginTop: 20 }}>
         Review Your Trip
       </Text>
 
@@ -40,7 +40,7 @@ const RatingForDriver = () => {
         <View>
           <AirbnbRating
             count={5}
-            reviews={["Bad", "OK", "Good", "Hmm...", "Very Good"]}
+            reviews={["Bad", "OK", "Good", "Very Good", "Awesome"]}
             defaultRating={3}
             size={20}
           />
@@ -102,7 +102,7 @@ const RatingForDriver = () => {
 export default RatingForDriver;
 
 const styles = StyleSheet.create({
-  head: { marginLeft: 40 },
+  head: { marginLeft: 40},
   body: { backgroundColor: "#DCDCDC" },
   word: { width: 400, fontSize: 20, marginTop: 13, marginLeft: 20 },
   comp: {
