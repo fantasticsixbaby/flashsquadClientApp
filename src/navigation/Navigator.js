@@ -15,7 +15,9 @@ const dummyScreen = (props) => {
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator
+      screenOptions={{ headerShown: false,}}
+      >
         <Drawer.Screen name="Home" component={HomeNavigator} />
       </Drawer.Navigator>
     </NavigationContainer>

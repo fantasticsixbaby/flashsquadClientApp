@@ -4,8 +4,10 @@ import { Button } from "react-native-paper";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { IconButton, Colors } from "react-native-paper";
 import { Avatar } from "react-native-paper";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
+  const navigation = useNavigation();
   const backButton = () => {
     URL;
   };
@@ -16,10 +18,17 @@ const Profile = () => {
     URL;
   };
   return (
-    <View style={{backgroundColor: "#fff", height: 600}}>
-      <View style={{ marginLeft: 45, marginTop: 50 }}>
+    <View style={{ backgroundColor: "#fff", height: 800 }}>
+      <View style={styles.drawer}>
+        <IconButton
+          icon="account-circle"
+          color={"#218cff"}
+          size={40}
+          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+        />
+      </View>
+      <View style={{ marginLeft: 45, marginTop: 80 }}>
         <View style={styles.row_show}>
-          
           {/* 头像，链接数据库 */}
           <Avatar.Image
             size={150}
@@ -62,6 +71,14 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
+
+  drawer: {
+    position: "absolute",
+    zIndex: 999,
+    top: 30,
+    width: "100%",
+    marginLeft: 10,
+  },
   head: {
     width: 150,
     height: 150,
