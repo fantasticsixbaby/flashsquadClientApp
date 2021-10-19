@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   map: {
-    marginTop: 20,
+    marginTop: 22,
     height: 1000,
     zIndex: 0,
   },
