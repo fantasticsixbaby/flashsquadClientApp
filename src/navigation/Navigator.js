@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeNavigator from "./HomeNavigator";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import RewardPage from "../screens/Reward";
 
 const Drawer = createDrawerNavigator();
 
@@ -19,6 +20,7 @@ const Navigator = () => {
       screenOptions={{ headerShown: false,}}
       >
         <Drawer.Screen name="Home" component={HomeNavigator} />
+        <Drawer.Screen name="Reward" component={RewardPage} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

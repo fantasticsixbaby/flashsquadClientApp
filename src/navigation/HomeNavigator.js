@@ -22,9 +22,10 @@ const HomeNavigator = () => {
       }}
       initialRouteName={"HomeScreen"}
     >
-      <Stack.Screen name={"HomeScreen"} component={RewardPage} />
+      <Stack.Screen name={"HomeScreen"} component={HomeScreen} />
       <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
       <Stack.Screen name={"SearchResult"} component={SearchResults} />
+      <Stack.Screen name={"Reward"} component={RewardPage} />
     </Stack.Navigator>
   );
 };
