@@ -1,32 +1,62 @@
-import React from "react";
-import { View, Text, TextInput, StyleSheet, Image, Button, Alert } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Image,
+  Button,
+  Alert,
+} from "react-native";
 import { IconButton } from "react-native-paper";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
+import Dialog from "react-native-dialog";
 
 const RewardPage = () => {
-    const navigation = useNavigation();
-    const state = { 
-        show:true,
-      sharings:10, // 需要调用数据库里的数,这里是假设
-      sharings_rank1:50, // 需要调用数据库里的数,这里是排名第1的
-      sharings_rank2:35, // 需要调用数据库里的数,这里是排名第2的
-      sharings_rank3:20, // 需要调用数据库里的数,这里是排名第3的
-    }
+  const navigation = useNavigation();
+  const [visible, setVisible] = useState(false);
 
-    const couponButton=()=> {
-      alert('10% off at UQ Canteen \n 9/16/2021-12/12/2021 \n Coupon redeem code: 12345')
-    }
+  const showDialog = () => {
+    setVisible(true);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const state = {
+    show: true,
+    sharings: 10, // 需要调用数据库里的数,这里是假设
+    sharings_rank1: 50, // 需要调用数据库里的数,这里是排名第1的
+    sharings_rank2: 35, // 需要调用数据库里的数,这里是排名第2的
+    sharings_rank3: 20, // 需要调用数据库里的数,这里是排名第3的
+  };
+
   return (
-    <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700}}>
-      <View style={{ flexDirection: "row", width: 300, height: 70, marginTop: 10 }}>
-      <View style={styles.back}>
-        <IconButton
-          icon="account-circle"
-          color={"#218cff"}
-          size={40}
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-        />
+    <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700 }}>
+      <View>
+        <Dialog.Container visible={visible}>
+          <Dialog.Title>NOTIFICATION</Dialog.Title>
+          <Dialog.Description>
+            10% off at UQ Canteen 
+            9/16/2021-12/12/2021 
+            Coupon redeem code:
+            95596
+          </Dialog.Description>
+          <Dialog.Button label="Ok" onPress={handleCancel}/>
+        </Dialog.Container>
       </View>
+      <View
+        style={{ flexDirection: "row", width: 300, height: 70, marginTop: 10 }}
+      >
+        <View style={styles.back}>
+          <IconButton
+            icon="account-circle"
+            color={"#218cff"}
+            size={40}
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          />
+        </View>
         <Text
           style={{
             marginLeft: 80,
@@ -42,16 +72,17 @@ const RewardPage = () => {
       <View style={{ backgroundColor: "#EFF0F2" }}>
         {/* 头像，名字链接数据库 */}
         <View style={styles.row_show}>
-          <Image style={styles.person} source={require("../../images/head.jpeg")} />
+          <Image
+            style={styles.person}
+            source={require("../../images/head.jpeg")}
+          />
           <View style={{ flexDirection: "column", marginTop: 10 }}>
             <Text style={{ marginLeft: 15, fontSize: 18 }}>Chris Zhang</Text>
             <View style={{ flexDirection: "row" }}>
               {/* 名字下面 等级和sharing的数据 */}
               <Text style={{ marginLeft: 15, fontSize: 18 }}>
                 Lv.
-                {state.sharings < 10
-                  ? 0
-                  : Math.floor(state.sharings / 10)}
+                {state.sharings < 10 ? 0 : Math.floor(state.sharings / 10)}
               </Text>
               <Text style={{ marginLeft: 10, fontSize: 18 }}>
                 {state.sharings} sharings
@@ -137,10 +168,9 @@ const RewardPage = () => {
                 }}
               >
                 <Text
-                  onPress={couponButton}
+                  onPress={showDialog}
                   style={{
                     fontWeight: "bold",
-                    fontFamily: "Sonsie One",
                     color: "white",
                     fontSize: 20,
                     marginLeft: 30,
@@ -195,7 +225,13 @@ export default RewardPage;
 
 const styles = StyleSheet.create({
   back: { width: 60, height: 60, marginTop: -5, marginLeft: 20 },
-  person: { width: 60, height: 60, marginLeft: 70, borderRadius: 100, marginBottom: 20 },
+  person: {
+    width: 60,
+    height: 60,
+    marginLeft: 70,
+    borderRadius: 100,
+    marginBottom: 20,
+  },
   row_show: { flexDirection: "row", marginTop: 20 },
   black_line: {
     height: 3,
@@ -208,8 +244,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 60,
     width: 320,
-    marginLeft: 10, 
-    marginBottom: 20
+    marginLeft: 10,
+    marginBottom: 20,
   },
   coupon_text: { fontSize: 17, fontWeight: "bold" },
   black_line_v: {
@@ -217,6 +253,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
     marginLeft: 15,
     marginTop: 6,
-    
   },
 });
