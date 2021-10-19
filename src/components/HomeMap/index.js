@@ -3,10 +3,21 @@ import { StyleSheet, Text, View } from "react-native";
 import HomeSearch from "../HomeSearch";
 import MapView from "react-native-maps";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import { IconButton} from "react-native-paper";
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 
 const HomeMap = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.map}>
+      <View style={styles.drawer}>
+        <IconButton
+          icon="account-circle"
+          color={"#218cff"}
+          size={40}
+          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+        />
+      </View>
       <View style={styles.HomeSearch}>
         <HomeSearch />
       </View>
@@ -34,8 +45,15 @@ const HomeMap = () => {
 export default HomeMap;
 
 const styles = StyleSheet.create({
+  drawer: {
+    position: "absolute",
+    zIndex: 999,
+    top: 20,
+    width: "100%",
+    marginLeft: 10,
+  },
   map: {
-    //marginTop: 25,
+    marginTop: 22,
     height: 1000,
     zIndex: 0,
   },
@@ -48,7 +66,7 @@ const styles = StyleSheet.create({
     // height: Dimemsions.get('window').height - 320
     position: "absolute",
     zIndex: 999,
-    top: 320,
+    top: 400,
     width: "100%",
   },
 });

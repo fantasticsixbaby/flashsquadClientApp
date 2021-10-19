@@ -3,6 +3,11 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeNavigator from "./HomeNavigator";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import RewardPage from "../screens/Reward";
+import LeaderBoard from "../screens/Leaderboard";
+import Evaluation from "../screens/Evaluation";
+import HomeScreen from "../screens/HomeScreen";
+import Profile from "../screens/Profile";
 
 const Drawer = createDrawerNavigator();
 
@@ -15,8 +20,13 @@ const dummyScreen = (props) => {
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator
+      screenOptions={{ headerShown: false,}}
+      >
         <Drawer.Screen name="Home" component={HomeNavigator} />
+        <Drawer.Screen name="Account" component={Evaluation} />
+        <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
+        <Drawer.Screen name="Reward" component={RewardPage} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

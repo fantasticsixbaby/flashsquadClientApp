@@ -95,7 +95,7 @@ const HomeSearch = (props) => {
         </View>
         <GooglePlacesAutocomplete
           placeholder="Where to?"
-          style={{ height: 40, marginLeft: 10 }}
+          style={{ height: 40, marginLeft: 20 }}
           fetchDetails
           query={{
             key: "AIzaSyB1F0Q3wRGrbJpn7_u9kDH6WmM8VZ_z8MA",
@@ -111,7 +111,7 @@ const HomeSearch = (props) => {
       </View>
 
       {/* Destination */}
-      <Pressable onPress={goToSearch} style={styles.row}>
+      <Pressable onPress={goToSearch} style={styles.lastRow}>
         <View style={[styles.iconContainer]}>
           <Entypo name={"home"} size={25} color={"#218cff"} />
         </View>
@@ -133,15 +133,6 @@ const HomeSearch = (props) => {
           onChange={onChange}
         />
       )}
-      <View style={styles.button}>
-        <StyledButton
-          color="#218cff"
-          mode="contained"
-          onPress={() => console.log("Pressed")}
-        >
-          COMFIRMED
-        </StyledButton>
-      </View>
     </View>
   );
 };
@@ -170,6 +161,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "#dbdbdb",
   },
+  lastRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 10,
+  },
   iconContainer: {
     backgroundColor: "#ffffff",
     padding: 5,
@@ -184,7 +180,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   wholeSearch: {
-    height: 250,
+    height: 200,
     margin: 20,
     borderRadius: 15,
     backgroundColor: "#ffffff",

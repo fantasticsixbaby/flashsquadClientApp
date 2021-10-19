@@ -9,6 +9,10 @@ import Profile from "../screens/Profile";
 import RatingForDriver from "../screens/Rating";
 import Login from "../screens/Login";
 import Signup from "../screens/Signup";
+import RouteMap from "../screens/RouteMap";
+import RewardPage from "../screens/Reward";
+import LeaderBoard from "../screens/Leaderboard";
+import Evaluation from "../screens/Evaluation";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,11 +22,17 @@ const HomeNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={"Home"}
+      initialRouteName={"Rating"}
     >
-      <Stack.Screen name={"Home"} component={Signup} />
+      <Stack.Screen name={"HomeScreen"} component={HomeScreen} />
       <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
       <Stack.Screen name={"SearchResult"} component={SearchResults} />
+      <Stack.Screen name={"Reward"} component={RewardPage} />
+      <Stack.Screen name={"LeaderBoard"} component={LeaderBoard} />
+      <Stack.Screen name={"Account"} component={Evaluation} />
+      <Stack.Screen name={"Profile"} component={Profile} />
+      <Stack.Screen name={"RouteMap"} component={RouteMap} />
+      <Stack.Screen name={"Rating"} component={RatingForDriver} />
     </Stack.Navigator>
   );
 };
