@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   Image,
-  Button,
-  Alert,
 } from "react-native";
 import { IconButton } from "react-native-paper";
 import { DrawerActions, useNavigation } from "@react-navigation/native";

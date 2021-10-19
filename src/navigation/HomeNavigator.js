@@ -11,6 +11,7 @@ import Login from "../screens/Login";
 import Signup from "../screens/Signup";
 import RouteMap from "../screens/RouteMap";
 import RewardPage from "../screens/Reward";
+import LeaderBoard from "../screens/Leaderboard";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +23,7 @@ const HomeNavigator = () => {
       }}
       initialRouteName={"HomeScreen"}
     >
-      <Stack.Screen name={"HomeScreen"} component={HomeScreen} />
+      <Stack.Screen name={"HomeScreen"} component={LeaderBoard} />
       <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
       <Stack.Screen name={"SearchResult"} component={SearchResults} />
       <Stack.Screen name={"Reward"} component={RewardPage} />
