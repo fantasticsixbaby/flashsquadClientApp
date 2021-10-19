@@ -5,6 +5,8 @@ import HomeNavigator from "./HomeNavigator";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import RewardPage from "../screens/Reward";
 import LeaderBoard from "../screens/Leaderboard";
+import Evaluation from "../screens/Evaluation";
+import HomeScreen from "../screens/HomeScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -20,9 +22,10 @@ const Navigator = () => {
       <Drawer.Navigator
       screenOptions={{ headerShown: false,}}
       >
-        <Drawer.Screen name="Home" component={HomeNavigator} />
+        <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Reward" component={RewardPage} />
         <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
+        <Drawer.Screen name="Evaluation" component={Evaluation} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
