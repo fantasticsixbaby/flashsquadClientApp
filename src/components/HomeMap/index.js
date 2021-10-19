@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     // height: Dimemsions.get('window').height - 320
     position: "absolute",
     zIndex: 999,
-    top: 320,
+    top: 400,
     width: "100%",
   },
 });

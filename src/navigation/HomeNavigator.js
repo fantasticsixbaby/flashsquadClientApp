@@ -9,6 +9,7 @@ import Profile from "../screens/Profile";
 import RatingForDriver from "../screens/Rating";
 import Login from "../screens/Login";
 import Signup from "../screens/Signup";
+import RouteMap from "../screens/RouteMap";
 
 const Stack = createNativeStackNavigator();
 
