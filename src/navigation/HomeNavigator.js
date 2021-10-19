@@ -29,7 +29,7 @@ const HomeNavigator = () => {
       <Stack.Screen name={"SearchResult"} component={SearchResults} />
       <Stack.Screen name={"Reward"} component={RewardPage} />
       <Stack.Screen name={"LeaderBoard"} component={LeaderBoard} />
-      <Stack.Screen name={"Evaluation"} component={Evaluation} />
+      <Stack.Screen name={"Account"} component={Evaluation} />
       <Stack.Screen name={"Profile"} component={Profile} />
     </Stack.Navigator>
   );

@@ -25,7 +25,7 @@ const Navigator = () => {
       >
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Profile" component={Profile} />
-        <Drawer.Screen name="Evaluation" component={Evaluation} />
+        <Drawer.Screen name="Account" component={Evaluation} />
         <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
         <Drawer.Screen name="Reward" component={RewardPage} />
       </Drawer.Navigator>
