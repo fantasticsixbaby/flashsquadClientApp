@@ -11,21 +11,6 @@ const Evaluation = () => {
     score: 3 /**score 是从数据库获取的得分 */,
   };
 
-  const backButton = () => {
-    URL;
-  };
-  const historyButton = () => {
-    URL;
-  };
-  const rewardButton = () => {
-    URL;
-  };
-  const profileButton = () => {
-    URL;
-  };
-  const switchButton = () => {
-    URL;
-  };
   return (
     <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700 }}>
       <View style={styles.back}>
@@ -52,7 +37,7 @@ const Evaluation = () => {
         <Text style={styles.major}>Mater of Information Technology</Text>
       </View>
 
-      <Text style={{ marginTop: 20, fontSize: 20, marginLeft: 120 }}>
+      <Text style={{ marginTop: 20, fontSize: 20, marginLeft: 160 }}>
         Passenger
       </Text>
 
@@ -66,38 +51,6 @@ const Evaluation = () => {
             defaultRating={4}
             size={20}
           />
-        </View>
-      </View>
-
-      <View style={{ marginLeft: 20 }}>
-        <View style={styles.row_show}>
-          <Image
-            style={styles.icon}
-            source={require("../../images/history.png")}
-          />
-          <Text style={styles.text} onPress={historyButton}>
-            Trip history
-          </Text>
-        </View>
-
-        <View style={styles.row_show}>
-          <Image
-            style={styles.icon}
-            source={require("../../images/reward.png")}
-          />
-          <Text style={styles.text} onPress={rewardButton}>
-            Reward
-          </Text>
-        </View>
-
-        <View style={styles.row_show}>
-          <Image
-            style={styles.icon}
-            source={require("../../images/profile.png")}
-          />
-          <Text style={styles.text} onPress={profileButton}>
-            Profile
-          </Text>
         </View>
       </View>
     </View>

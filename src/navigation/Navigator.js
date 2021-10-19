@@ -7,6 +7,7 @@ import RewardPage from "../screens/Reward";
 import LeaderBoard from "../screens/Leaderboard";
 import Evaluation from "../screens/Evaluation";
 import HomeScreen from "../screens/HomeScreen";
+import Profile from "../screens/Profile";
 
 const Drawer = createDrawerNavigator();
 
@@ -23,9 +24,10 @@ const Navigator = () => {
       screenOptions={{ headerShown: false,}}
       >
         <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Reward" component={RewardPage} />
-        <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
+        <Drawer.Screen name="Profile" component={Profile} />
         <Drawer.Screen name="Evaluation" component={Evaluation} />
+        <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
+        <Drawer.Screen name="Reward" component={RewardPage} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
