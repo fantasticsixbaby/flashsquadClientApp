@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import {  Marker,PROVIDER_GOOGLE } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
+import RouteMapCard from "../../components/RouteMapCard";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyB1F0Q3wRGrbJpn7_u9kDH6WmM8VZ_z8MA";
 
@@ -37,6 +38,9 @@ const RouteMap = () => {
         coordinate={destination}
       ></Marker>
       </MapView>
+      <View style={styles.card}>
+      <RouteMapCard />
+      </View>
     </View>
   );
 };
@@ -47,5 +51,13 @@ const styles = StyleSheet.create({
   map: {
     marginTop: 25,
     height: 1000,
+    zIndex: 1,
   },
+  card: {
+    position: "absolute",
+    zIndex: 999,
+    top: 430,
+    width: "90%",
+    margin: 20,
+  }
 });

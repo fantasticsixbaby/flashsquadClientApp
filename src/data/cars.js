@@ -5,6 +5,9 @@ export default [
       latitude: -27.4705,
       longitude: 153.020,
       heading: 47,
+      "driver": "Luke",
+      "StartingPoint": "South Brisbane",
+      "Destination": "UQ Sport Center",
     },
     {
       id: '1',
@@ -12,6 +15,9 @@ export default [
       latitude: -27.4600,
       longitude: 153.026,
       heading: 190,
+      "driver": "Lisa",
+      "StartingPoint": "South Brisbane",
+      "Destination": "UQ Central Library",
     },
     {
       id: '2',
@@ -19,6 +25,9 @@ export default [
       latitude: -27.4711,
       longitude: 153.010,
       heading: 99,
+      "driver": "William",
+      "StartingPoint": "UQ Central Library",
+      "Destination": "Toowong",
     },
     {
       id: '3',
@@ -26,5 +35,8 @@ export default [
       latitude: -27.4980,
       longitude: 153.030,
       heading: 182,
+      "driver": "Justin",
+      "StartingPoint": "Indooroopilly",
+      "Destination": "UQ Sport Center",
     },
   ];

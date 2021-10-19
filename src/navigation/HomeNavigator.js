@@ -22,7 +22,7 @@ const HomeNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={"HomeScreen"}
+      initialRouteName={"RouteMap"}
     >
       <Stack.Screen name={"HomeScreen"} component={HomeScreen} />
       <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
@@ -31,6 +31,8 @@ const HomeNavigator = () => {
       <Stack.Screen name={"LeaderBoard"} component={LeaderBoard} />
       <Stack.Screen name={"Account"} component={Evaluation} />
       <Stack.Screen name={"Profile"} component={Profile} />
+      <Stack.Screen name={"RouteMap"} component={RouteMap} />
+      <Stack.Screen name={"Rating"} component={RatingForDriver} />
     </Stack.Navigator>
   );
 };
