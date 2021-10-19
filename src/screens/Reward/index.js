@@ -13,28 +13,12 @@ const RewardPage = () => {
       sharings_rank3:20, // 需要调用数据库里的数,这里是排名第3的
     }
 
- 
-    const backButton =() => {
-       
-    }
-    const histiryButton =()=> {
-        
-    }
-     const rewardButton =()=> {
-       
-    }
-    const profileButton =()=> {
-       
-    }
-    const switchButton =()=> {
-        
-    }
-    const conpButton=()=> {
+    const couponButton=()=> {
       alert('10% off at UQ Canteen \n 9/16/2021-12/12/2021 \n Coupon redeem code: 12345')
     }
   return (
-    <View style={{ marginTop: 50 }}>
-      <View style={{ flexDirection: "row", width: 300, height: 70 }}>
+    <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700}}>
+      <View style={{ flexDirection: "row", width: 300, height: 70, marginTop: 10 }}>
       <View style={styles.back}>
         <IconButton
           icon="account-circle"
@@ -55,10 +39,10 @@ const RewardPage = () => {
         </Text>
       </View>
 
-      <View style={{ backgroundColor: "#EFF0F2", marginTop: 10 }}>
+      <View style={{ backgroundColor: "#EFF0F2" }}>
         {/* 头像，名字链接数据库 */}
         <View style={styles.row_show}>
-          <Image style={styles.name} source={require("../../images/head.jpeg")} />
+          <Image style={styles.person} source={require("../../images/head.jpeg")} />
           <View style={{ flexDirection: "column", marginTop: 10 }}>
             <Text style={{ marginLeft: 15, fontSize: 18 }}>Chris Zhang</Text>
             <View style={{ flexDirection: "row" }}>
@@ -76,7 +60,7 @@ const RewardPage = () => {
           </View>
         </View>
 
-        <View style={{ marginLeft: 20, marginTop: 20 }}>
+        <View style={{ marginLeft: 40, marginTop: 20 }}>
           <Text
             style={{
               marginLeft: 250,
@@ -129,17 +113,17 @@ const RewardPage = () => {
           </Text>
           <View style={styles.black_line}></View>
 
-          <Text style={{ fontSize: 15, marginTop: 35 }}>
+          <Text style={{ fontSize: 15, marginTop: 35, marginBottom: 10 }}>
             You will get a new coupon for every new level
           </Text>
 
           <View style={{ height: 20 }}></View>
 
-          <View style={styles.conp}>
+          <View style={styles.coupon}>
             <View style={{ flexDirection: "row" }}>
               <View style={{ marginLeft: 10, marginTop: 5 }}>
-                <Text style={styles.conp_text}>10% off at UQ Canteen</Text>
-                <Text style={styles.conp_text}>9/16/2021-12/12/2021</Text>
+                <Text style={styles.coupon_text}>10% off at UQ Canteen</Text>
+                <Text style={styles.coupon_text}>9/16/2021-12/12/2021</Text>
               </View>
               <View style={styles.black_line_v}></View>
               <View
@@ -153,7 +137,7 @@ const RewardPage = () => {
                 }}
               >
                 <Text
-                  onPress={conpButton}
+                  onPress={couponButton}
                   style={{
                     fontWeight: "bold",
                     fontFamily: "Sonsie One",
@@ -171,11 +155,11 @@ const RewardPage = () => {
 
           <View style={{ height: 10 }}></View>
 
-          <View style={styles.conp}>
+          <View style={styles.coupon}>
             <View style={{ flexDirection: "row" }}>
               <View style={{ marginLeft: 10, marginTop: 5 }}>
-                <Text style={styles.conp_text}>10% off at UQ Canteen</Text>
-                <Text style={styles.conp_text}>9/16/2021-12/12/2021</Text>
+                <Text style={styles.coupon_text}>10% off at UQ Canteen</Text>
+                <Text style={styles.coupon_text}>9/16/2021-12/12/2021</Text>
               </View>
               <View style={styles.black_line_v}></View>
               <View
@@ -210,30 +194,29 @@ const RewardPage = () => {
 export default RewardPage;
 
 const styles = StyleSheet.create({
-  back: { width: 60, height: 60, marginTop: -5 },
-  name: { width: 60, height: 60, marginLeft: 5, borderRadius: 100 },
-  row_show: { flexDirection: "row", marginTop: 40 },
+  back: { width: 60, height: 60, marginTop: -5, marginLeft: 20 },
+  person: { width: 60, height: 60, marginLeft: 70, borderRadius: 100, marginBottom: 20 },
+  row_show: { flexDirection: "row", marginTop: 20 },
   black_line: {
     height: 3,
     width: 100,
-    backgroundColor: "black",
+    backgroundColor: "#000000",
     marginLeft: 220,
-    marginTop: 5,
   },
-  conp: {
+  coupon: {
     backgroundColor: "#FFE818",
     borderRadius: 10,
     height: 60,
-    marginTop: 20,
     width: 320,
+    marginLeft: 10, 
+    marginBottom: 20
   },
-  conp_text: { fontSize: 17, fontWeight: "bold" },
+  coupon_text: { fontSize: 17, fontWeight: "bold" },
   black_line_v: {
     width: 2,
-    backgroundColor: "black",
+    backgroundColor: "#000000",
     marginLeft: 15,
     marginTop: 6,
+    
   },
-  rank: { width: 50, height: 35, marginLeft: 5 },
-  rankphoto: { width: 40, height: 40, borderRadius: 100, marginLeft: 30 },
 });
