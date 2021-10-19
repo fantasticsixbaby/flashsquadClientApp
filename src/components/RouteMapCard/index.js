@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Card, Title, Paragraph, Button } from "react-native-paper";
-import { DrawerActions, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 const RouteMapCard = () => {
   const navigation = useNavigation();

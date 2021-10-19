@@ -3,11 +3,16 @@ import { View, Text, Image, TextInput, StyleSheet } from "react-native";
 import { Avatar } from "react-native-paper";
 import { Button } from "react-native-paper";
 import { AirbnbRating } from "react-native-ratings";
+import { useNavigation } from "@react-navigation/native";
 
 const RatingForDriver = () => {
+  const navigation = useNavigation();
   const ratingCompleted = (rating) => {
     console.log("Rating is: " + rating);
   };
+  const CompleteReview = () => {
+    navigation.navigate("HomeScreen")
+  }
   return (
     <View style={{ backgroundColor: "#fff", height: 800 }}>
       <Text style={{ padding: 15, marginLeft: 10, fontSize: 20,marginTop: 20 }}>
@@ -80,9 +85,7 @@ const RatingForDriver = () => {
       <View style={styles.back}>
         <Button
           mode="contained"
-          onPress={() => {
-            URL;
-          }}
+          onPress={CompleteReview}
           style={{
             marginTop: 10,
             width: 180,
