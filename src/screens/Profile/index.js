@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   head: {
     width: 150,
     height: 150,
-    marginTop: -50,
+    marginTop: -40,
     marginLeft: 30,
   },
   icon: { width: 50, height: 50, marginTop: 50 },

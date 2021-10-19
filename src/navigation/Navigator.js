@@ -23,8 +23,7 @@ const Navigator = () => {
       <Drawer.Navigator
       screenOptions={{ headerShown: false,}}
       >
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="Home" component={HomeNavigator} />
         <Drawer.Screen name="Account" component={Evaluation} />
         <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
         <Drawer.Screen name="Reward" component={RewardPage} />

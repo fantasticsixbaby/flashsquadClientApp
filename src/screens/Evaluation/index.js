@@ -3,13 +3,19 @@ import { View, Text, TextInput, StyleSheet, Image } from "react-native";
 import { IconButton } from "react-native-paper";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { AirbnbRating } from "react-native-ratings";
+import { Button } from "react-native-paper";
 
 const Evaluation = () => {
   const navigation = useNavigation();
+  
   const state = {
     show: true,
     score: 3 /**score 是从数据库获取的得分 */,
   };
+
+  const goToProfile = () => {
+   navigation.navigate("Profile");
+  }
 
   return (
     <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700 }}>
@@ -20,7 +26,11 @@ const Evaluation = () => {
           size={40}
           onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
         />
+        <Button onPress={goToProfile} style={styles.button} mode="contained">
+            Edit
+          </Button>
       </View>
+      
 
       {/* 头像，链接数据库 */}
       <View style={styles.row_show}>
@@ -73,4 +83,12 @@ const styles = StyleSheet.create({
   major: { marginLeft: 70, marginTop: 20, fontSize: 18 },
   text: { fontSize: 18, marginLeft: 10 },
   star: { width: 200, height: 30 },
+  button: {
+      width: 80,
+      height: 38,
+      borderRadius: 10,
+      marginTop: -60,
+      marginLeft: 260,
+      backgroundColor: "#218cff",
+    }
 });
