@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, StyleSheet, Image } from "react-native";
 
 const LeaderBoard = () => {
-  state = {
+  const state = {
     show: true,
     sharings_owner: 10, // 需要调用数据库里的数,这里是假设
     sharings_rank1: 50, // 需要调用数据库里的数,这里是排名第1的
@@ -12,8 +12,8 @@ const LeaderBoard = () => {
     sharings_rank5: 15, // 需要调用数据库里的数,这里是排名第3的
   };
 
-  backButton = () => {
-    this.setState({ show: !this.state.show });
+  const backButton = () => {
+    setState({ show: !state.show });
   };
   return (
     <View style={{ marginTop: 50 }}>
@@ -40,7 +40,10 @@ const LeaderBoard = () => {
         <View style={styles.row_show}>
           {/**第二名*/}
           <View style={{ marginTop: 10 }}>
-            <Image style={style.rank} source={require("../../images/rank2.png")} />
+            <Image
+              style={styles.rank}
+              source={require("../../images/rank2.png")}
+            />
             <Image
               style={styles.rankphoto}
               source={require("../../images/head.jpeg")}
@@ -50,34 +53,37 @@ const LeaderBoard = () => {
             <View style={{ flexDirection: "row" }}>
               <Text style={{ marginLeft: 10, fontSize: 14 }}>
                 Lv.
-                {this.state.sharings_rank2 < 10
+                {state.sharings_rank2 < 10
                   ? 0
-                  : Math.floor(this.state.sharings_rank2 / 10)}
+                  : Math.floor(state.sharings_rank2 / 10)}
               </Text>
               <Text style={{ marginLeft: 7, fontSize: 14 }}>
-                {this.state.sharings_rank2} sharings
+                {state.sharings_rank2} sharings
               </Text>
             </View>
           </View>
 
           {/**第一名*/}
           <View style={{ marginTop: -10, marginLeft: 10 }}>
-            <Image style={styles.rank} source={require("../../images/rank1.png")} />
+            <Image
+              style={styles.rank}
+              source={require("../../images/rank1.png")}
+            />
             <Image
               style={styles.rankphoto}
-              source={require("../../images/head.jpeg")}
+              source={require("../../images/head_small.png")}
             />
 
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Chris Zhang</Text>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ marginLeft: 10, fontSize: 14 }}>
                 Lv.
-                {this.state.sharings_rank1 < 10
+                {state.sharings_rank1 < 10
                   ? 0
-                  : Math.floor(this.state.sharings_rank1 / 10)}
+                  : Math.floor(state.sharings_rank1 / 10)}
               </Text>
               <Text style={{ marginLeft: 7, fontSize: 14 }}>
-                {this.state.sharings_rank1} sharings
+                {state.sharings_rank1} sharings
               </Text>
             </View>
           </View>
@@ -86,19 +92,19 @@ const LeaderBoard = () => {
             <Image style={styles.rank} source={require("../../images/rank3.png")} />
             <Image
               style={styles.rankphoto}
-              source={require("./images/head.jpeg")}
+              source={require("../../images/head_small.png")}
             />
 
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Yang Zhang</Text>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ marginLeft: 10, fontSize: 14 }}>
                 Lv.
-                {this.state.sharings_rank3 < 10
+                {state.sharings_rank3 < 10
                   ? 0
-                  : Math.floor(this.state.sharings_rank3 / 10)}
+                  : Math.floor(state.sharings_rank3 / 10)}
               </Text>
               <Text style={{ marginLeft: 7, fontSize: 14 }}>
-                {this.state.sharings_rank3} sharings
+                {state.sharings_rank3} sharings
               </Text>
             </View>
           </View>
@@ -112,18 +118,18 @@ const LeaderBoard = () => {
             <Text>No.4</Text>
             <Image
               style={styles.rankphoto_low}
-              source={require("../../images/head.jpeg")}
+              source={require("../../images/head_small.png")}
             />
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Rui Zhang</Text>
 
             <Text style={{ marginLeft: 10, fontSize: 14 }}>
               Lv.
-              {this.state.sharings_rank4 < 10
+              {state.sharings_rank4 < 10
                 ? 0
-                : Math.floor(this.state.sharings_rank4 / 10)}
+                : Math.floor(state.sharings_rank4 / 10)}
             </Text>
             <Text style={{ marginLeft: 7, fontSize: 14 }}>
-              {this.state.sharings_rank4} sharings
+              {state.sharings_rank4} sharings
             </Text>
           </View>
 
@@ -134,18 +140,18 @@ const LeaderBoard = () => {
             <Text>No.5</Text>
             <Image
               style={styles.rankphoto_low}
-              source={require("../../images/head.jpeg")}
+              source={require("../../images/head_small.png")}
             />
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Justin Ren</Text>
 
             <Text style={{ marginLeft: 10, fontSize: 14 }}>
               Lv.
-              {this.state.sharings_rank5 < 10
+              {state.sharings_rank5 < 10
                 ? 0
-                : Math.floor(this.state.sharings_rank5 / 10)}
+                : Math.floor(state.sharings_rank5 / 10)}
             </Text>
             <Text style={{ marginLeft: 7, fontSize: 14 }}>
-              {this.state.sharings_rank5} sharings
+              {state.sharings_rank5} sharings
             </Text>
           </View>
 
@@ -156,18 +162,18 @@ const LeaderBoard = () => {
             <Text>No.6</Text>
             <Image
               style={styles.rankphoto_low}
-              source={require("../../images/head.jpeg")}
+              source={require("../../images/head_small.png")}
             />
             <Text style={{ marginLeft: 15, fontSize: 14 }}> 用户 </Text>
 
             <Text style={{ marginLeft: 10, fontSize: 14 }}>
               Lv.
-              {this.state.sharings_owner < 10
+              {state.sharings_owner < 10
                 ? 0
-                : Math.floor(this.state.sharings_owner / 10)}
+                : Math.floor(state.sharings_owner / 10)}
             </Text>
             <Text style={{ marginLeft: 7, fontSize: 14 }}>
-              {this.state.sharings_owner} sharings
+              {state.sharings_owner} sharings
             </Text>
           </View>
         </View>
