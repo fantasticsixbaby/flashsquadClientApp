@@ -23,10 +23,11 @@ const HomeNavigator = () => {
       }}
       initialRouteName={"HomeScreen"}
     >
-      <Stack.Screen name={"HomeScreen"} component={LeaderBoard} />
+      <Stack.Screen name={"HomeScreen"} component={HomeScreen} />
       <Stack.Screen name={"DestinationSearch"} component={DestinationSearch} />
       <Stack.Screen name={"SearchResult"} component={SearchResults} />
       <Stack.Screen name={"Reward"} component={RewardPage} />
+      <Stack.Screen name={"LeaderBoard"} component={LeaderBoard} />
     </Stack.Navigator>
   );
 };

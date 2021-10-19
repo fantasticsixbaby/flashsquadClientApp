@@ -1,7 +1,10 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, Image } from "react-native";
+import { IconButton } from "react-native-paper";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 
 const LeaderBoard = () => {
+  const navigation = useNavigation();
   const state = {
     show: true,
     sharings_owner: 10, // 需要调用数据库里的数,这里是假设
@@ -16,13 +19,16 @@ const LeaderBoard = () => {
     setState({ show: !state.show });
   };
   return (
-    <View style={{ marginTop: 50 }}>
-      <View style={{ flexDirection: "row", width: 300, height: 70 }}>
-        <Image
-          onPress={this.backButton}
-          style={styles.back}
-          source={require("../../images/star.png")}
-        />
+    <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700}}>
+      <View style={{ flexDirection: "row", width: 300, height: 70, marginTop: 30 }}>
+        <View style={styles.back}>
+          <IconButton
+            icon="account-circle"
+            color={"#218cff"}
+            size={40}
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          />
+        </View>
         <Text
           style={{
             marginLeft: 60,
@@ -46,7 +52,7 @@ const LeaderBoard = () => {
             />
             <Image
               style={styles.rankphoto}
-              source={require("../../images/head.jpeg")}
+              source={require("../../images/11.png")}
             />
 
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Lily Chen</Text>
@@ -71,7 +77,7 @@ const LeaderBoard = () => {
             />
             <Image
               style={styles.rankphoto}
-              source={require("../../images/head_small.png")}
+              source={require("../../images/1.png")}
             />
 
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Chris Zhang</Text>
@@ -89,10 +95,13 @@ const LeaderBoard = () => {
           </View>
           {/**第三名*/}
           <View style={{ marginTop: 10, marginLeft: 5 }}>
-            <Image style={styles.rank} source={require("../../images/rank3.png")} />
+            <Image
+              style={styles.rank}
+              source={require("../../images/rank3.png")}
+            />
             <Image
               style={styles.rankphoto}
-              source={require("../../images/head_small.png")}
+              source={require("../../images/3.png")}
             />
 
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Yang Zhang</Text>
@@ -118,7 +127,7 @@ const LeaderBoard = () => {
             <Text>No.4</Text>
             <Image
               style={styles.rankphoto_low}
-              source={require("../../images/head_small.png")}
+              source={require("../../images/4.png")}
             />
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Rui Zhang</Text>
 
@@ -140,7 +149,7 @@ const LeaderBoard = () => {
             <Text>No.5</Text>
             <Image
               style={styles.rankphoto_low}
-              source={require("../../images/head_small.png")}
+              source={require("../../images/9.png")}
             />
             <Text style={{ marginLeft: 15, fontSize: 14 }}>Justin Ren</Text>
 
@@ -162,7 +171,7 @@ const LeaderBoard = () => {
             <Text>No.6</Text>
             <Image
               style={styles.rankphoto_low}
-              source={require("../../images/head_small.png")}
+              source={require("../../images/10.png")}
             />
             <Text style={{ marginLeft: 15, fontSize: 14 }}> 用户 </Text>
 
@@ -185,8 +194,8 @@ const LeaderBoard = () => {
 export default LeaderBoard;
 
 const styles = StyleSheet.create({
-  back: { width: 60, height: 60, marginTop: -5 },
-  row_show: { flexDirection: "row", marginTop: 20 },
+  back: { width: 60, height: 60, marginTop: -5, marginLeft: 20 },
+  row_show: { flexDirection: "row", marginTop: 30, marginLeft: 30 },
   rank: { width: 50, height: 35, marginLeft: 5 },
   rankphoto: { width: 40, height: 40, borderRadius: 100, marginLeft: 30 },
   rankphoto_low: {
