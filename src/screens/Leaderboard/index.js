@@ -173,7 +173,7 @@ const LeaderBoard = () => {
               style={styles.rankphoto_low}
               source={require("../../images/10.png")}
             />
-            <Text style={{ marginLeft: 15, fontSize: 14 }}> 用户 </Text>
+            <Text style={{ marginLeft: 15, fontSize: 14 }}> William Chen </Text>
 
             <Text style={{ marginLeft: 10, fontSize: 14 }}>
               Lv.
