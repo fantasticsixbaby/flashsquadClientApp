@@ -5,9 +5,9 @@ import Icon from "react-native-vector-icons/AntDesign";
 import Navigator from "./src/navigation/Navigator";
 import HomeScreen from "./src/screens/HomeScreen";
 
-import Amplify from "aws-amplify";
-import awsExports from "./src/aws-exports";
-Amplify.configure(awsExports);
+import Amplify from 'aws-amplify'
+import config from './src/aws-exports'
+Amplify.configure(config)
 
 export default function App() {
   return (
