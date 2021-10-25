@@ -10,6 +10,14 @@
       "StackName": "amplify-flashsquadclientapp-dev-174652",
       "StackId": "arn:aws:cloudformation:us-east-1:490280642263:stack/amplify-flashsquadclientapp-dev-174652/825be190-3578-11ec-be67-0e860b3d6d2f",
       "AmplifyAppId": "d3slbyf4w4wvvt"
+    },
+    "categories": {
+      "auth": {
+        "flashsquadclientappff2dea0dff2dea0d": {}
+      },
+      "function": {
+        "flashsquadclientappff2dea0dff2dea0dPostConfirmation": {}
+      }
     }
   }
 }
