@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^1.2.21",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/netinfo": "^6.0.4",
     "@react-navigation/drawer": "^6.1.7",
