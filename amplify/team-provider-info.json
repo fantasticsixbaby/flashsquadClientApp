@@ -16,7 +16,10 @@
         "flashsquadclientappff2dea0dff2dea0d": {}
       },
       "function": {
-        "flashsquadclientappff2dea0dff2dea0dPostConfirmation": {}
+        "flashsquadclientappff2dea0dff2dea0dPostConfirmation": {
+          "deploymentBucketName": "amplify-flashsquadclientapp-dev-174652-deployment",
+          "s3Key": "amplify-builds/flashsquadclientappff2dea0dff2dea0dPostConfirmation-35774f2b4d62446b6553-build.zip"
+        }
       }
     }
   }
