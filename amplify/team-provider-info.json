@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-flashsquadclientapp-dev-174652-authRole",
+      "UnauthRoleArn": "arn:aws:iam::490280642263:role/amplify-flashsquadclientapp-dev-174652-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::490280642263:role/amplify-flashsquadclientapp-dev-174652-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-flashsquadclientapp-dev-174652-deployment",
+      "UnauthRoleName": "amplify-flashsquadclientapp-dev-174652-unauthRole",
+      "StackName": "amplify-flashsquadclientapp-dev-174652",
+      "StackId": "arn:aws:cloudformation:us-east-1:490280642263:stack/amplify-flashsquadclientapp-dev-174652/825be190-3578-11ec-be67-0e860b3d6d2f",
+      "AmplifyAppId": "d3slbyf4w4wvvt"
+    }
+  }
+}

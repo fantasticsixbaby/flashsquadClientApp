@@ -13,6 +13,7 @@ import RouteMap from "../screens/RouteMap";
 import RewardPage from "../screens/Reward";
 import LeaderBoard from "../screens/Leaderboard";
 import Evaluation from "../screens/Evaluation";
+import HomeMap from "../components/HomeMap";
 
 const Stack = createNativeStackNavigator();
 
