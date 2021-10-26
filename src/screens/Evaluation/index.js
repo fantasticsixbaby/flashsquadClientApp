@@ -7,15 +7,15 @@ import { Button } from "react-native-paper";
 
 const Evaluation = () => {
   const navigation = useNavigation();
-  
+
   const state = {
     show: true,
-    score: 3 /**score 是从数据库获取的得分 */,
+    score: 3,
   };
 
   const goToProfile = () => {
-   navigation.navigate("Profile");
-  }
+    navigation.navigate("Profile");
+  };
 
   return (
     <View style={{ marginTop: 25, backgroundColor: "#fff", height: 700 }}>
@@ -27,10 +27,9 @@ const Evaluation = () => {
           onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
         />
         <Button onPress={goToProfile} style={styles.button} mode="contained">
-            Edit
-          </Button>
+          Edit
+        </Button>
       </View>
-      
 
       {/* 头像，链接数据库 */}
       <View style={styles.row_show}>
@@ -53,7 +52,7 @@ const Evaluation = () => {
 
       {/**获取分值,展示星星 */}
 
-      <View style={{ marginTop: 20}}>
+      <View style={{ marginTop: 20 }}>
         <View>
           <AirbnbRating
             count={5}
@@ -84,11 +83,11 @@ const styles = StyleSheet.create({
   text: { fontSize: 18, marginLeft: 10 },
   star: { width: 200, height: 30 },
   button: {
-      width: 80,
-      height: 38,
-      borderRadius: 10,
-      marginTop: -60,
-      marginLeft: 260,
-      backgroundColor: "#218cff",
-    }
+    width: 80,
+    height: 38,
+    borderRadius: 10,
+    marginTop: -60,
+    marginLeft: 260,
+    backgroundColor: "#218cff",
+  },
 });

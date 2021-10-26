@@ -1,22 +1,53 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TextInput,
+  Platform,
+} from "react-native";
 import { Button } from "react-native-paper";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { IconButton, Colors } from "react-native-paper";
 import { Avatar } from "react-native-paper";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
+import * as ImagePicker from "expo-image-picker";
 
 const Profile = () => {
+  const [image, setImage] = useState(null);
   const navigation = useNavigation();
-  const backButton = () => {
-    URL;
-  };
-  const changeButton = () => {
-    URL;
-  };
+
   const saveButton = () => {
-    URL;
+    console.warn("Ok");
   };
+
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== "web") {
+        const { status } =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== "granted") {
+          alert("Sorry, we need camera roll permissions to make this work!");
+        }
+      }
+    })();
+  }, []);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
   return (
     <View style={{ backgroundColor: "#fff", height: 800 }}>
       <View style={styles.drawer}>
@@ -29,39 +60,49 @@ const Profile = () => {
       </View>
       <View style={{ marginLeft: 45, marginTop: 80 }}>
         <View style={styles.row_show}>
-          {/* 头像，链接数据库 */}
-          <Avatar.Image
-            size={150}
-            style={styles.head}
-            source={require("../../images/head.jpeg")}
-          />
+          {image ? (
+            <Avatar.Image source={{ uri: image }} style={styles.head} />
+          ) : (
+            <Avatar.Image
+              size={150}
+              style={styles.head}
+              source={require("../../images/head.jpeg")}
+            />
+          )}
 
           <IconButton
             size={40}
             color={"#fff"}
             icon="camera"
             style={styles.change}
-            onPress={changeButton}
+            onPress={pickImage}
           />
 
-          <Button onPress={saveButton} style={styles.save} mode="contained">
+          <Button
+            onPress={() => console.log("Pressed")}
+            style={styles.save}
+            mode="contained"
+          >
             Save
           </Button>
         </View>
 
         <View style={styles.icon}>
           <Text style={styles.word}>Name</Text>
-          <Text style={styles.input}>User Name</Text>
+          <TextInput style={styles.input} placeholder="User Name" />
         </View>
 
         <View style={styles.icon}>
           <Text style={styles.word}>Major</Text>
-          <Text style={styles.input}>Major</Text>
+          <TextInput style={styles.input} placeholder="Major" />
         </View>
 
         <View style={styles.icon}>
           <Text style={styles.word}>Degree</Text>
-          <Text style={styles.input}>Degree, such as Bachelor</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Your Degree, such as Bachelor"
+          />
         </View>
       </View>
     </View>
@@ -71,7 +112,6 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
-
   drawer: {
     position: "absolute",
     zIndex: 999,
