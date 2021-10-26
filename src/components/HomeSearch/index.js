@@ -3,7 +3,6 @@ import { StyleSheet, View, Platform, TextInput, Pressable } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
-import { Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Location from "expo-location";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
