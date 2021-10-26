@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  Platform,
-  TextInput,
-  Pressable,
-} from "react-native";
+import { StyleSheet, View, Platform, TextInput, Pressable } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
-import { Button as StyledButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Location from "expo-location";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -20,13 +13,13 @@ const HomeSearch = (props) => {
   const newDate = new Date();
   const hours = newDate.getHours();
   const minutes = newDate.getMinutes();
+
   const makeTwoDigits = (time) => {
     const timeString = `${time}`;
     if (timeString.length === 2) return time;
     return `0${time}`;
   };
 
-  
   const [time, setTime] = useState(
     `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`
   );
@@ -36,12 +29,16 @@ const HomeSearch = (props) => {
   const [destination, setDestination] = React.useState(null);
 
   const onChange = (event, selectedTime) => {
-    const hours = selectedTime.getHours();
-    const minutes = selectedTime.getMinutes();
-    const currentTime =
-      `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}` || time;
-    setShow(Platform.OS === "android");
+    let currentTime;
+    if (typeof selectedTime === 'undefined') {
+      currentTime = time;
+    } else {
+      const hours = selectedTime.getHours();
+      const minutes = selectedTime.getMinutes();
+      currentTime = `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`;
+    }
     setTime(currentTime);
+    setShow(false);
   };
 
   const showMode = (currentMode) => {
@@ -54,7 +51,9 @@ const HomeSearch = (props) => {
   };
 
   const goToSearch = () => {
-    navigation.navigate("DestinationSearch");
+    navigation.navigate("DestinationSearch", {
+      startingPoint
+    });
   };
 
   useEffect(() => {
@@ -72,7 +71,7 @@ const HomeSearch = (props) => {
   return (
     <View style={styles.wholeSearch}>
       {/*input box*/}
-      <View onPress={showTimepicker} style={styles.row}>
+      <View style={styles.row}>
         <View style={styles.iconContainer}>
           <AntDesign
             onPress={showTimepicker}
@@ -126,7 +125,7 @@ const HomeSearch = (props) => {
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
-          value={new Date()}
+          value={newDate}
           mode={mode}
           is24Hour={true}
           display="default"

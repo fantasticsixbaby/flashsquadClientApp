@@ -8,7 +8,7 @@ import BottomSheetForClient from "../../components/BottomSheet";
 
 const SearchResults = () => {
   const route = useRoute();
-  console.log(route.params);
+  //console.log(route.params);
   return (
     <View style={styles.map}>
       <MapView

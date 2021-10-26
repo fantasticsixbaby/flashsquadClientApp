@@ -7,9 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const RatingForDriver = () => {
   const navigation = useNavigation();
-  const ratingCompleted = (rating) => {
-    console.log("Rating is: " + rating);
-  };
+  
   const CompleteReview = () => {
     navigation.navigate("HomeScreen")
   }
