@@ -51,7 +51,9 @@ const HomeSearch = (props) => {
   };
 
   const goToSearch = () => {
-    navigation.navigate("DestinationSearch");
+    navigation.navigate("DestinationSearch", {
+      startingPoint
+    });
   };
 
   useEffect(() => {

@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput, SafeAreaView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import PlaceRow from "./PlaceRow";
-import { useNavigation } from "@react-navigation/native";
 
-const DestinationSearch = () => {
-  const navigation = useNavigation();
-  const [fromText, setFromText] = useState("");
-  const [destinationText, setDestinationText] = useState("");
-  const [originPlace, setOriginalPlace] = useState(null);
+const DestinationSearch = ({ route, navigation }) => {
+  const { startingPoint } = route.params;
   const [destinationPlace, setDestinationPlace] = useState(null);
 
   useEffect(() => {
@@ -24,9 +20,7 @@ const DestinationSearch = () => {
       <View style={styles.container}>
         <TextInput
           style={styles.textInput}
-          placeholder="Where from"
-          value={fromText}
-          onChangeText={setFromText}
+          placeholder={startingPoint.data.description}
           editable={false}
         ></TextInput>
         <GooglePlacesAutocomplete
