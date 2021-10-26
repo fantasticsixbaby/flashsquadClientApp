@@ -30,12 +30,12 @@ const HomeSearch = (props) => {
   const [destination, setDestination] = React.useState(null);
 
   const onChange = (event, selectedTime) => {
-    const hours = selectedTime.getHours();
-    const minutes = selectedTime.getMinutes();
     let currentTime;
-    if (hours === undefined) {
+    if (typeof selectedTime === 'undefined') {
       currentTime = time;
     } else {
+      const hours = selectedTime.getHours();
+      const minutes = selectedTime.getMinutes();
       currentTime = `${makeTwoDigits(hours)}:${makeTwoDigits(minutes)}`;
     }
     setTime(currentTime);
