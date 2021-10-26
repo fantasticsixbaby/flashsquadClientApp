@@ -30,7 +30,6 @@ const HomeSearch = (props) => {
   const [destination, setDestination] = React.useState(null);
 
   const onChange = (event, selectedTime) => {
-    console.log(selectedTime);
     const hours = selectedTime.getHours();
     const minutes = selectedTime.getMinutes();
     let currentTime;
@@ -125,7 +124,7 @@ const HomeSearch = (props) => {
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
-          value={new Date()}
+          value={newDate}
           mode={mode}
           is24Hour={true}
           display="default"
