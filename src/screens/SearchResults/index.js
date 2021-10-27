@@ -2,31 +2,27 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { useRoute } from '@react-navigation/native';
+import { useRoute } from "@react-navigation/native";
 import BottomSheetForClient from "../../components/BottomSheet";
-import {API, graphqlOperation} from 'aws-amplify';
-import { listCars } from '../../graphql/queries';
+import { API, graphqlOperation } from "aws-amplify";
+import { listCars } from "../../graphql/queries";
 
 const SearchResults = () => {
-  const [cars ,setCars] = useState([]);
+  const [cars, setCars] = useState([]);
   const route = useRoute();
   //console.log(route.params);
 
   useEffect(() => {
-    const fetchCars = async() => {
+    const fetchCars = async () => {
       try {
-        const response = await API.graphql(
-          graphqlOperation(
-            listCars
-          )
-        )
+        const response = await API.graphql(graphqlOperation(listCars));
         setCars(response.data.listCars.items);
-      }catch(e) {
+      } catch (e) {
         console.error(e);
       }
     };
     fetchCars();
-  }, [])
+  }, []);
   return (
     <View style={styles.map}>
       <MapView
@@ -53,19 +49,19 @@ const SearchResults = () => {
                 width: 60,
                 height: 60,
                 resizeMode: "contain",
-                transform: [{ 
-                  rotate: `${car.heading}deg`
-                 }],
+                transform: [
+                  {
+                    rotate: `${car.heading}deg`,
+                  },
+                ],
               }}
               source={require("../../images/top-UberX.png")}
             />
           </Marker>
         ))}
-        
       </MapView>
-      <BottomSheetForClient cars={cars}/>
+      <BottomSheetForClient cars={cars} />
     </View>
-    
   );
 };
 

@@ -14,6 +14,10 @@ export const onCreateUser = /* GraphQL */ `
           createdAt
           carId
           rating
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
           updatedAt
         }
         nextToken
@@ -36,6 +40,10 @@ export const onUpdateUser = /* GraphQL */ `
           createdAt
           carId
           rating
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
           updatedAt
         }
         nextToken
@@ -58,6 +66,10 @@ export const onDeleteUser = /* GraphQL */ `
           createdAt
           carId
           rating
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
           updatedAt
         }
         nextToken
@@ -84,6 +96,10 @@ export const onCreateCar = /* GraphQL */ `
           createdAt
           carId
           rating
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
           updatedAt
         }
         nextToken
@@ -110,6 +126,10 @@ export const onUpdateCar = /* GraphQL */ `
           createdAt
           carId
           rating
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
           updatedAt
         }
         nextToken
@@ -136,6 +156,10 @@ export const onDeleteCar = /* GraphQL */ `
           createdAt
           carId
           rating
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
           updatedAt
         }
         nextToken
@@ -177,6 +201,10 @@ export const onCreateOrder = /* GraphQL */ `
         updatedAt
       }
       rating
+      originLatitude
+      originLongitude
+      destLatitude
+      destLongitude
       updatedAt
     }
   }
@@ -213,6 +241,10 @@ export const onUpdateOrder = /* GraphQL */ `
         updatedAt
       }
       rating
+      originLatitude
+      originLongitude
+      destLatitude
+      destLongitude
       updatedAt
     }
   }
@@ -249,6 +281,10 @@ export const onDeleteOrder = /* GraphQL */ `
         updatedAt
       }
       rating
+      originLatitude
+      originLongitude
+      destLatitude
+      destLongitude
       updatedAt
     }
   }

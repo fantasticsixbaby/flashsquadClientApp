@@ -25,5 +25,9 @@ type Order @model
   carId: ID
   car: Car @connection(fields: ["carId"])
   rating: Float
+  originLatitude: Float!
+  originLongitude: Float!
+  destLatitude: Float!
+  destLongitude: Float!
 }
 
