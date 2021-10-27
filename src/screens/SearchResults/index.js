@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import cars from "../../data/cars";
 import { useRoute } from '@react-navigation/native';
 import BottomSheetForClient from "../../components/BottomSheet";
+import {API, graphqlOperation} from 'aws-amplify';
+import { listCars } from '../../graphql/queries';
 
 const SearchResults = () => {
+  const [cars ,setCars] = useState([]);
   const route = useRoute();
   //console.log(route.params);
+
+  useEffect(() => {
+    const fetchCars = async() => {
+      try {
+        const response = await API.graphql(
+          graphqlOperation(
+            listCars
+          )
+        )
+        setCars(response.data.listCars.items);
+      }catch(e) {
+        console.error(e);
+      }
+    };
+    fetchCars();
+  }, [])
   return (
     <View style={styles.map}>
       <MapView
@@ -45,7 +63,7 @@ const SearchResults = () => {
         ))}
         
       </MapView>
-      <BottomSheetForClient />
+      <BottomSheetForClient cars={cars}/>
     </View>
     
   );
