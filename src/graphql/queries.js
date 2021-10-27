@@ -13,6 +13,7 @@ export const getUser = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -59,6 +60,7 @@ export const getCar = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -124,6 +126,7 @@ export const getOrder = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      rating
       updatedAt
     }
   }
@@ -158,6 +161,7 @@ export const listOrders = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        rating
         updatedAt
       }
       nextToken

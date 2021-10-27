@@ -24,5 +24,6 @@ type Order @model
   user: User @connection(fields: ["userId"])
   carId: ID
   car: Car @connection(fields: ["carId"])
+  rating: Float
 }
 

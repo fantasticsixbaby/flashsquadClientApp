@@ -13,6 +13,7 @@ export const onCreateUser = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -34,6 +35,7 @@ export const onUpdateUser = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -55,6 +57,7 @@ export const onDeleteUser = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -80,6 +83,7 @@ export const onCreateCar = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -105,6 +109,7 @@ export const onUpdateCar = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -130,6 +135,7 @@ export const onDeleteCar = /* GraphQL */ `
           userId
           createdAt
           carId
+          rating
           updatedAt
         }
         nextToken
@@ -170,6 +176,7 @@ export const onCreateOrder = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      rating
       updatedAt
     }
   }
@@ -205,6 +212,7 @@ export const onUpdateOrder = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      rating
       updatedAt
     }
   }
@@ -240,6 +248,7 @@ export const onDeleteOrder = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      rating
       updatedAt
     }
   }
