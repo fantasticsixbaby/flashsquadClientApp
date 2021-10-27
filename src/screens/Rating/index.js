@@ -67,7 +67,7 @@ const RatingForDriver = () => {
               style={styles.address}
               source={require("../../images/address.png")}
             />
-            <Text style={{ marginLeft: 5, fontSize: 13 }}>start</Text>
+            <Text style={{ marginLeft: 5, fontSize: 14 }}>South Brisbane</Text>
           </View>
 
           <View style={{ flexDirection: "row", marginTop: 20, marginLeft: 10 }}>
@@ -75,7 +75,7 @@ const RatingForDriver = () => {
               style={styles.address}
               source={require("../../images/address.png")}
             />
-            <Text style={{ marginLeft: 5, fontSize: 13 }}>destination</Text>
+            <Text style={{ marginLeft: 5, fontSize: 13 }}>UQ Central Building, St Lucia</Text>
           </View>
         </View>
       </View>
