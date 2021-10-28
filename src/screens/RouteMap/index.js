@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
@@ -8,7 +8,7 @@ import RouteMapCard from "../../components/RouteMapCard";
 const GOOGLE_MAPS_APIKEY = "AIzaSyB1F0Q3wRGrbJpn7_u9kDH6WmM8VZ_z8MA";
 
 const RouteMap = () => {
-  const origin = { latitude: -27.4975, longitude: 153.000 };
+  const origin = { latitude: -27.4975, longitude: 153.0 };
   const destination = { latitude: -27.4975, longitude: 153.0137 };
 
   return (

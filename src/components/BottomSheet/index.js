@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, FlatList, StatusBar, TouchableOpacity } from "react-native";
 import BottomSheet from "react-native-simple-bottom-sheet";
-import cars from "../../data/cars";
 import { useNavigation } from "@react-navigation/native";
 
 const Item = ({ item }) => (
@@ -12,7 +11,7 @@ const Item = ({ item }) => (
   </View>
 );
 
-const BottomSheetForClient = () => {
+const BottomSheetForClient = ({cars}) => {
   const navigation = useNavigation();
 
   return (
