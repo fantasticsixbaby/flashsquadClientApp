@@ -8,7 +8,7 @@ import RouteMapCard from "../../components/RouteMapCard";
 const GOOGLE_MAPS_APIKEY = "AIzaSyB1F0Q3wRGrbJpn7_u9kDH6WmM8VZ_z8MA";
 
 const RouteMap = () => {
-  const origin = { latitude: -27.4975, longitude: 153.0 };
+  const origin = { latitude: -27.4975, longitude: 153.0120 };
   const destination = { latitude: -27.4975, longitude: 153.0137 };
 
   return (
